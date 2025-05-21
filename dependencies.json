@@ -1,0 +1,10 @@
+{
+  "common": ["dotenv"],
+  "foundry": [
+    "foundry-rs/forge-std",
+    "OpenZeppelin/openzeppelin-foundry-upgrades",
+    "OpenZeppelin/openzeppelin-contracts",
+    "smartcontractkit/foundry-chainlink-toolkit"
+  ],
+  "hardhat": ["@openzeppelin/contracts", "@chainlink/hardhat-chainlink"]
+}

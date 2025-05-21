@@ -1,9 +1,10 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "@chainlink/hardhat-chainlink";
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.29",
+    version: "0.8.28",
     settings: {
       //evmVersion: "cancun", // seems to be required for the latest hardhat || will use Paris evm
       optimizer: {
