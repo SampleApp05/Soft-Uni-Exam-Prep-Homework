@@ -3,8 +3,8 @@
   "foundry": [
     "foundry-rs/forge-std",
     "OpenZeppelin/openzeppelin-foundry-upgrades",
-    "OpenZeppelin/openzeppelin-contracts",
-    "smartcontractkit/foundry-chainlink-toolkit"
+    "OpenZeppelin/openzeppelin-contracts-upgradeable",
+    "smartcontractkit/chainlink-brownie-contracts"
   ],
-  "hardhat": ["@openzeppelin/contracts", "@chainlink/hardhat-chainlink"]
+  "hardhat": ["@openzeppelin/contracts-upgradeable", "@chainlink/contracts"]
 }

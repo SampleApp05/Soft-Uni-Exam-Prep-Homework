@@ -12,7 +12,7 @@ if (fs.existsSync(sourceFile) === false) {
 const dependencyList = JSON.parse(fs.readFileSync(sourceFile, "utf-8"));
 
 const shouldInstall = (key) =>
-  flags === false ||
+  !flags ||
   (flags === "-f" && (key === "foundry" || key === "common")) ||
   (flags === "-h" && (key === "hardhat" || key === "common"));
 

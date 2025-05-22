@@ -3,7 +3,7 @@ pragma solidity 0.8.28;
 
 import {Clones} from "@openzeppelin/contracts/proxy/Clones.sol";
 import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
-import {PayrollLogic} from "./PayrollLogic.sol";
+import {PayrollContract} from "./Payroll-Logic/PayrollContract.sol";
 
 contract PayrollProxyFactory is AccessControl {
     event ProxyCreated(address indexed proxy);
@@ -19,15 +19,21 @@ contract PayrollProxyFactory is AccessControl {
         _grantRole(ADMIN_ROLE, msg.sender);
     }
 
-    function createProxy()
-        external
-        onlyRole(ADMIN_ROLE)
-        returns (address proxy)
-    {
+    function createProxy(
+        address benefactor,
+        string calldata departmentName,
+        string calldata version,
+        address priceFeedContract
+    ) external onlyRole(ADMIN_ROLE) returns (address proxy) {
         uint256 proxyID = proxyCount++;
 
         proxy = Clones.clone(implementation);
-        //PayrollLogic(proxy).initialize();
+        PayrollContract(proxy).initialize(
+            benefactor,
+            departmentName,
+            version,
+            priceFeedContract
+        );
         proxies[proxyID] = proxy;
 
         emit ProxyCreated(proxy);
